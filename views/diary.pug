@@ -1,0 +1,42 @@
+html
+head
+   title Person
+   body
+      form(action = "/diary", method = "POST" style="margin-top:12%")
+        div
+            label(for = "doc_number", style = "margin-left:33%; font-size: 3rem; padding-right: 1rem") Document number: 
+            if(data)
+                input(name = "doc_number", value=data.doc_number)
+            else
+                input(name = "doc_number")
+        
+        br
+        div
+            label(for = "title", style = "margin-left:33%; font-size: 3rem; padding-right: 5.4rem") Document title: 
+            if(data)
+                input(name = "title", value=data.title)
+            else
+                input(name = "title")
+        br
+        div
+            label(for = "content", style = "margin-left:33%; font-size: 3rem; padding-right: 14rem; vertical-align: top;") Content: 
+            if(data)
+                textarea(name="content", cols="30", rows="10") #{data.content}
+                 
+            else
+                textarea(name="content", cols="30", rows="10")
+        br
+        button(type = "submit", value = "create", name="butt", style = "margin: 2% 1% 0% 20%; font-size: 2rem") Create new diary
+        button(type = "submit", value = "delete", name="butt", style = "margin: 0% 1% 0% 0%; font-size: 2rem") Delete diary
+        button(type = "submit", value = 'update', name="butt", style = "margin: 0% 1% 0% 0%; font-size: 2rem") Update diary 
+        button(type = "submit", value = 'show', name="butt", style = "margin: 0% 1% 0% 0%; font-size: 2rem") Show diary
+        button(type = "submit", value = 'clear', name="butt", style = "margin: 0% 1% 0% 0%; font-size: 2rem") clear fields
+
+        if(messtitle)
+            if(type == "error")
+                h3(style = "color:red; margin-left:33%; font-size: 2rem") #{messtitle}
+            else if(type == "good")
+                h3(style = "color:green; margin-left:33%; font-size: 2rem") #{messtitle}
+            else if(type == "good_save")
+                h3(style = "color:green; margin-left:33%; font-size: 2rem")
+                    |A New diary entry has been added!

@@ -1,0 +1,13 @@
+html
+   head
+      title Person
+   body
+      if(type == "error")
+         h3(style = "color:red") #{message}
+         <a href = "/person">click here to go to home</a>
+      else
+         h3 New person, 
+            name #{person.name}, 
+            age #{person.age} and 
+            nationality #{person.nationality} added!
+            <a href = "/person">click here to go to home</a>
